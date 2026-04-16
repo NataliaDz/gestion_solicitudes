@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_solicitudes_categoria_user,gestion_solicitudes.categoria.user,gestion_solicitudes.model_gestion_solicitudes_categoria,base.group_user,1,1,1,1
+access_gestion_solicitudes_categoria_manager,gestion_solicitudes.categoria.manager,gestion_solicitudes.model_gestion_solicitudes_categoria,base.group_system,1,1,1,1
+access_gestion_solicitudes_solicitud_user,gestion_solicitudes.solicitud.user,gestion_solicitudes.model_gestion_solicitudes_solicitud,base.group_user,1,1,1,0
+access_gestion_solicitudes_solicitud_manager,gestion_solicitudes.solicitud.manager,gestion_solicitudes.model_gestion_solicitudes_solicitud,base.group_system,1,1,1,1

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Categorías de Solicitudes -->
+    <record id="categoria_it" model="gestion_solicitudes.categoria">
+        <field name="codigo">IT</field>
+        <field name="name">IT</field>
+        <field name="descripcion">Solicitudes relacionadas con Tecnología de la Información: soporte técnico, incidencias, proyectos tecnológicos, acceso a sistemas, etc.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="categoria_rrhh" model="gestion_solicitudes.categoria">
+        <field name="codigo">RRHH</field>
+        <field name="name">RRHH</field>
+        <field name="descripcion">Solicitudes relacionadas con Recursos Humanos: vacaciones, nóminas, certificados, modificaciones de datos personales, etc.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="categoria_compras" model="gestion_solicitudes.categoria">
+        <field name="codigo">COMPRAS</field>
+        <field name="name">Compras</field>
+        <field name="descripcion">Solicitudes relacionadas con el área de Compras: pedidos de material, proveedores, presupuestos, etc.</field>
+        <field name="active">True</field>
+    </record>
+</odoo>
