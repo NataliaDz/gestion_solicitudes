@@ -6,10 +6,10 @@
         <field name="model">gestion_solicitudes.categoria</field>
         <field name="arch" type="xml">
             <list string="Categorías" editable="bottom">
-                <field name="codigo"/>
-                <field name="name"/>
-                <field name="descripcion"/>
-                <field name="active" widget="boolean-toggle"/>
+                <field name="codigo" />
+                <field name="name" />
+                <field name="descripcion" />
+                <field name="active" widget="boolean-toggle" />
             </list>
         </field>
     </record>
@@ -23,12 +23,12 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="codigo"/>
-                            <field name="name"/>
+                            <field name="codigo" />
+                            <field name="name" />
                         </group>
                         <group>
-                            <field name="active" widget="boolean-toggle"/>
-                            <field name="descripcion"/>
+                            <field name="active" widget="boolean-toggle" />
+                            <field name="descripcion" />
                         </group>
                     </group>
                 </sheet>
@@ -42,10 +42,10 @@
         <field name="model">gestion_solicitudes.categoria</field>
         <field name="arch" type="xml">
             <search string="Buscar Categorías">
-                <field name="name"/>
-                <field name="codigo"/>
-                <filter string="Activas" name="active" domain="[('active','=',True)]"/>
-                <filter string="Inactivas" name="inactive" domain="[('active','=',False)]"/>
+                <field name="name" />
+                <field name="codigo" />
+                <filter string="Activas" name="active" domain="[('active','=',True)]" />
+                <filter string="Inactivas" name="inactive" domain="[('active','=',False)]" />
             </search>
         </field>
     </record>
@@ -55,18 +55,19 @@
         <field name="name">gestion_solicitudes.solicitud.list</field>
         <field name="model">gestion_solicitudes.solicitud</field>
         <field name="arch" type="xml">
-            <list string="Solicitudes" decoration-success="estado=='cerrado'" decoration-danger="estado=='rechazado'">
-                <field name="name"/>
-                <field name="categoria_id"/>
-                <field name="solicitante_id"/>
-                <field name="prioridad" widget="badge" 
-                decoration-success="prioridad=='baja'" 
-                decoration-warning="prioridad=='media'" 
-                decoration-danger="prioridad == 'alta' or prioridad == 'urgente'"/>
-                <field name="estado" widget="badge"/>
-                <field name="asignado_id"/>
-                <field name="fecha_solicitud"/>
-                <field name="fecha_prevista"/>
+            <list string="Solicitudes" decoration-success="estado=='cerrado'"
+                decoration-danger="estado=='rechazado'">
+                <field name="name" />
+                <field name="categoria_id" />
+                <field name="solicitante_id" />
+                <field name="prioridad" widget="badge"
+                    decoration-success="prioridad=='baja'"
+                    decoration-warning="prioridad=='media'"
+                    decoration-danger="prioridad == 'alta' or prioridad == 'urgente'" />
+                <field name="estado" widget="badge" />
+                <field name="asignado_id" />
+                <field name="fecha_solicitud" />
+                <field name="fecha_prevista" />
             </list>
         </field>
     </record>
@@ -78,49 +79,64 @@
         <field name="arch" type="xml">
             <form string="Solicitud">
                 <header>
-                    <field name="estado" widget="statusbar" statusbar_visible="borrador,pendiente,asignado,en_proceso,resuelto,cerrado"/>
-                    <button name="action_borrador" string="Borrador" type="object" class="oe_highlight" invisible="estado != 'borrador'"/>
-                    <button name="action_pendiente" string="Enviar a Revisión" type="object" class="oe_highlight" invisible="estado != 'borrador'"/>
-                    <button name="action_asignar" string="Asignar" type="object" class="oe_highlight" invisible="estado not in ('pendiente', 'espera')"/>
-                    <button name="action_en_proceso" string="Iniciar Proceso" type="object" class="oe_highlight" invisible="estado != 'asignado'"/>
-                    <button name="action_espera" string="En Espera" type="object" invisible="estado != 'en_proceso'"/>
-                    <button name="action_resolver" string="Resolver" type="object" class="oe_highlight" invisible="estado not in ('asignado', 'en_proceso')"/>
-                    <button name="action_cerrar" string="Cerrar" type="object" class="oe_highlight" invisible="estado != 'resuelto'"/>
-                    <button name="action_rechazar" string="Rechazar" type="object" invisible="estado not in ('pendiente', 'asignado', 'en_proceso')"/>
-                    <button name="action_reabrir" string="Reabrir" type="object" invisible="estado not in ('cerrado', 'rechazado')"/>
+                    <field name="estado" widget="statusbar"
+                        statusbar_visible="borrador,pendiente,asignado,en_proceso,resuelto,cerrado" />
+                    <button name="action_borrador" string="Borrador" type="object"
+                        class="oe_highlight" invisible="estado != 'borrador'" />
+                    <button name="action_pendiente" string="Enviar a Revisión" type="object"
+                        class="oe_highlight" invisible="estado != 'borrador'" />
+                    <button name="action_asignar" string="Asignar" type="object"
+                        class="oe_highlight" invisible="estado not in ('pendiente', 'espera')" />
+                    <button name="action_en_proceso" string="Iniciar Proceso" type="object"
+                        class="oe_highlight" invisible="estado != 'asignado'" />
+                    <button name="action_espera" string="En Espera" type="object"
+                        invisible="estado != 'en_proceso'" />
+                    <button name="action_resolver" string="Resolver" type="object"
+                        class="oe_highlight" invisible="estado not in ('asignado', 'en_proceso')" />
+                    <button name="action_cerrar" string="Cerrar" type="object" class="oe_highlight"
+                        invisible="estado != 'resuelto'" />
+                    <button name="action_rechazar" string="Rechazar" type="object"
+                        invisible="estado not in ('pendiente', 'asignado', 'en_proceso')" />
+                    <button name="action_reabrir" string="Reabrir" type="object"
+                        invisible="estado not in ('cerrado', 'rechazado')" />
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <h1><field name="name" placeholder="Título de la solicitud"/></h1>
+                        <h1>
+                            <field name="name" placeholder="Título de la solicitud" />
+                        </h1>
                     </div>
                     <group>
                         <group string="Información Principal">
-                            <field name="categoria_id"/>
-                            <field name="solicitante_id" readonly="estado != 'borrador'"/>
-                            <field name="prioridad" widget="priority"/>
+                            <field name="categoria_id" />
+                            <field name="solicitante_id" readonly="estado != 'borrador'" />
+                            <field name="prioridad" widget="priority" />
                         </group>
                         <group string="Fechas">
-                            <field name="fecha_solicitud"/>
-                            <field name="fecha_prevista"/>
-                            <field name="fecha_resolucion" readonly="1"/>
+                            <field name="fecha_solicitud" />
+                            <field name="fecha_prevista" />
+                            <field name="fecha_resolucion" readonly="1" />
                         </group>
                     </group>
                     <group string="Detalles">
-                        <field name="descripcion" placeholder="Descripción detallada de la solicitud..."/>
+                        <field name="descripcion" colspan="2"
+                            placeholder="Descripción detallada de la solicitud..." />
                     </group>
-                    <group string="Asignación">
-                        <field name="asignado_id"/>
-                        <field name="notas"/>
-                    </group>
-                    <group string="Adjuntos">
-                        <field name="adjunto" widget="binary" filename="adjunto_filename"/>
-                        <field name="adjunto_filename" invisible="adjunto == False"/>
+                    <group>
+                        <group string="Asignación">
+                            <field name="asignado_id" />
+                            <field name="notas" />
+                        </group>
+                        <group string="Adjuntos">
+                            <field name="adjunto" widget="binary" filename="adjunto_filename" />
+                            <field name="adjunto_filename" invisible="adjunto == False" />
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
                 </div>
             </form>
         </field>
@@ -132,25 +148,37 @@
         <field name="model">gestion_solicitudes.solicitud</field>
         <field name="arch" type="xml">
             <kanban default_group_by="estado">
-                <field name="name"/>
-                <field name="categoria_id"/>
-                <field name="prioridad"/>
-                <field name="estado"/>
-                <field name="solicitante_id"/>
-                <field name="asignado_id"/>
-                <field name="fecha_prevista"/>
+                <field name="name" />
+                <field name="categoria_id" />
+                <field name="prioridad" />
+                <field name="estado" />
+                <field name="solicitante_id" />
+                <field name="asignado_id" />
+                <field name="fecha_prevista" />
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_details">
-                            <strong class="oe_partner_heading"><field name="name"/></strong>
+                            <strong class="oe_partner_heading">
+                                <field name="name" />
+                            </strong>
                             <ul>
-                                <li><i class="fa fa-tag" title="Categoría"/> <field name="categoria_id"/></li>
-                                <li><i class="fa fa-user" title="Solicitante"/> <field name="solicitante_id"/></li>
-                                <li><i class="fa fa-exclamation-triangle" title="Prioridad"/> Prioridad: <field name="prioridad"/></li>
-                                <li><i class="fa fa-calendar" title="Fecha Prevista"/> Prevista: <field name="fecha_prevista"/></li>
+                                <li>
+                                    <i class="fa fa-tag" title="Categoría" />
+                                    <field name="categoria_id" />
+                                </li>
+                                <li>
+                                    <i class="fa fa-user" title="Solicitante" />
+                                    <field name="solicitante_id" />
+                                </li>
+                                <li><i class="fa fa-exclamation-triangle" title="Prioridad" />
+                                    Prioridad: <field name="prioridad" /></li>
+                                <li><i class="fa fa-calendar" title="Fecha Prevista" /> Prevista: <field
+                                        name="fecha_prevista" /></li>
                             </ul>
                             <div class="oe_kanban_bottom">
-                                <span class="oe_kanban_record_new"><field name="estado"/></span>
+                                <span class="oe_kanban_record_new">
+                                    <field name="estado" />
+                                </span>
                             </div>
                         </div>
                     </t>
@@ -165,15 +193,18 @@
         <field name="model">gestion_solicitudes.solicitud</field>
         <field name="arch" type="xml">
             <search string="Buscar Solicitudes">
-                <field name="name"/>
-                <field name="solicitante_id"/>
-                <field name="asignado_id"/>
-                <field name="categoria_id"/>
+                <field name="name" />
+                <field name="solicitante_id" />
+                <field name="asignado_id" />
+                <field name="categoria_id" />
                 <group>
-                    <filter string="Categoría" name="group_categoria" context="{'group_by':'categoria_id'}"/>
-                    <filter string="Estado" name="group_estado" context="{'group_by':'estado'}"/>
-                    <filter string="Prioridad" name="group_prioridad" context="{'group_by':'prioridad'}"/>
-                    <filter string="Asignado" name="group_asignado" context="{'group_by':'asignado_id'}"/>
+                    <filter string="Categoría" name="group_categoria"
+                        context="{'group_by':'categoria_id'}" />
+                    <filter string="Estado" name="group_estado" context="{'group_by':'estado'}" />
+                    <filter string="Prioridad" name="group_prioridad"
+                        context="{'group_by':'prioridad'}" />
+                    <filter string="Asignado" name="group_asignado"
+                        context="{'group_by':'asignado_id'}" />
                 </group>
             </search>
         </field>
